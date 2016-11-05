@@ -2,11 +2,19 @@ var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
 
+var Pool = require('pg').Pool;
 var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+var pool = new Pool(config);
+app.get('/user1-db', function (req, res){
+    //make a select request
+    //return a response with the results
+    pool.query('SELECT * FROM user1');
+    res.send(JSON.stringify(result.rows));
 });
 
 app.get('/ui/style.css', function (req, res) {
