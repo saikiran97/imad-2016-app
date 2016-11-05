@@ -24,6 +24,11 @@ app.get('/user1-db', function (req, res){
     res.send(JSON.stringify(result.rows));
 });
 
+app.get('user1/:username',function(req,res){
+    pool.query("SELECT * FROM user1 WHERE username = " +req.params.username);
+    res.send(createTemplate(name,email));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
