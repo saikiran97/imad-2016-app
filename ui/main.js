@@ -1,2 +1,2 @@
 console.log('Loaded!');
-document.getElementById("demo").innerHTML = "Hello Everyone";
+document.getElementById("demo").innerHTML = "Guided By: Prof RA K Saravanaguru";
